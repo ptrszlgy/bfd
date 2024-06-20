@@ -408,6 +408,7 @@ func (peer *Peer) handle() {
 			}
 
 		case <-peer.control:
+			peer.conn.Close()
 			glog.Infof("Shutdown Peer")
 			return
 		}

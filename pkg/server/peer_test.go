@@ -7,6 +7,7 @@ import (
 	"reflect"
 	"testing"
 	"time"
+
 	//	"fmt"
 
 	"github.com/Thoro/bfd/pkg/api"
@@ -89,6 +90,10 @@ func (f *FakeConn) File() (*os.File, error) {
 	}
 
 	return f.file, nil
+}
+
+func (f *FakeConn) Close() error {
+	return nil
 }
 
 func (f *FakeConn) ReadMsgUDP(b, oob []byte) (n, oobn, flags int, addr *net.UDPAddr, err error) {
